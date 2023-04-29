@@ -14,9 +14,13 @@
       $_SESSION['firstName'] = $_POST['firstName'];
       $_SESSION['email'] = $_POST['email'];
       $_SESSION['userType'] = $_POST['userType'];
-      header('Location: chefDashboard.php');
+      if($_SESSION['userType'] == 'chef'){
+         header('Location: chefDashboard.php');
+      } else {
+         header('Location: ../booking.php');
+      }
    } else {
-      header('Location: chefDashboard.php');
+      header('Location: ../sign-up.php');
    }
 
 ?>

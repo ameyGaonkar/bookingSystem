@@ -135,6 +135,16 @@
 	background-color: var(--font-color);
 }
 
+.navbar a{
+	text-decoration: none;
+	color: #dfdfdf;
+}
+
+.navbar a:hover{
+	transition: 150ms ease-out;
+	color: #fff;
+}
+
 .brand{
 	display: inline-block;
 	width: 50%;

@@ -1,10 +1,17 @@
+<?php
+	session_start();
+	if (!isset($_SESSION['email'])){
+		header('Location: index.html');
+	} 
+?>
+
 <!doctype html>
 <html lang="en">
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Chef Booking</title>
-	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="css/style.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
@@ -12,7 +19,7 @@
 	<!-- Top - Navbar -->
 	<div class="navbar">
 		<span class="brand">Chef Booking</span>
-		<span class="user-details">Hi Amey! &nbsp; | &nbsp; <i class="fa fa-power-off" aria-hidden="true"></i> Logout</span>
+		<span class="user-details">Hi <?php echo $_SESSION['firstName']; ?>! &nbsp; | &nbsp; <a href="scripts/logout.php"><i class="fa fa-power-off" aria-hidden="true"></i> Logout</a></span>
 	</div>
 
 	<!-- Container -->
@@ -65,7 +72,7 @@
 			</div>
 		</div>
 	</div>
-	<script src="script.js"></script>
+	<script src="js/script.js"></script>
 	<script>
 		document.getElementById("current-date").value = new Date().toISOString().slice(0, 10); 
 	</script>

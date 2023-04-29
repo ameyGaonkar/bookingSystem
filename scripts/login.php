@@ -6,15 +6,15 @@
     $login->bindParam(2,$_POST['password']);
     $login->execute();
 
-    var_dump($login);
+    $user = $login->fetch();
 
-    // if ($insert->execute()) { 
-    //     session_start();
-    //     $_SESSION['firstName'] = $_POST['firstName'];
-    //     $_SESSION['email'] = $_POST['email'];
-    //     $_SESSION['userType'] = $_POST['userType'];
-    //     header('Location: ../chefDashboard.php');
-    // } else {
-    //     header('Location: ../index.html');
-    // }
+    if (!empty($user['firstName'])) { 
+        session_start();
+        $_SESSION['firstName'] = $user['firstName'];
+        $_SESSION['email'] = $user['email'];
+        $_SESSION['userType'] = $user['user_type'];
+        header('Location: ../chefDashboard.php');
+    } else {
+        header('Location: ../index.html');
+    }
 ?>
