@@ -29,7 +29,7 @@
 		<div class="side-nav">
 			<a href="#">Profile</a>
 			<a class="side-nav-active" href="booking.php">Book Now!</a>
-			<a href="#">Booking History</a>
+			<a href="booking-history.php">Booking History</a>
 		</div>
 
 		<!-- Content Section -->

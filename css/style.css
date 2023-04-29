@@ -217,6 +217,9 @@
 	display: flex;
 }
 
+
+/* Chef Card Styling */
+
 .chef-card{
 	flex-basis: 300px;
 	height: auto;
