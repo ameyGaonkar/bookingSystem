@@ -26,7 +26,7 @@
 }
 
 .landing{
-	background-image: url("background.jpeg");
+	background-image: url("../images/background.jpeg");
 	justify-content: center;
 	align-items: center;
 }

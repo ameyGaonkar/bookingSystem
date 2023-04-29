@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>User Sign-in</title>
-	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="css/style.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
@@ -16,11 +16,11 @@
 				<form>
 					<div class="input-group">
 						<label for="">Email</label>
-						<input type="email" placeholder="Enter your email here." pattern="[a-zA-Z0-9._-]+@[a-zA-Z0-9]+\.[a-zA-Z0-9]{2,4}"  title="Enter email in format axxxxx@xxx.xx" required autofocus>
+						<input type="email" name="email" placeholder="Enter your email here." pattern="[a-zA-Z0-9._-]+@[a-zA-Z0-9]+\.[a-zA-Z0-9]{2,4}"  title="Enter email in format axxxxx@xxx.xx" required autofocus>
 					</div>
 					<div class="input-group">
 						<label for="">Password</label>
-						<input type="password" placeholder="Enter your password here." pattern=".{8,}" title="Length should be minimum 8 characters" required>
+						<input type="password" name="password" placeholder="Enter your password here." pattern=".{8,}" title="Length should be minimum 8 characters" required>
 						<div style="padding-top: 5px;"><a href="forgot-password.html">Forgot Password?</a></div>
 					</div>
 					<div class="input-group">
@@ -31,6 +31,6 @@
 			</span>
 		</div>
 	</div>
-	<script src="js/scripts.js"></script>
+	<script src="js/script.js"></script>
 </body>
 </html>
