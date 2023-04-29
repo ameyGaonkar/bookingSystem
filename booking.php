@@ -27,6 +27,7 @@
 
 		<!-- Side - Navbar -->
 		<div class="side-nav">
+			<a href="#">Profile</a>
 			<a class="side-nav-active" href="booking.html">Book Now!</a>
 			<a href="#">Booking History</a>
 		</div>
@@ -37,44 +38,44 @@
 
 			<!-- Booking Selectors -->
 			<div class="wrapper">
-				<form>
-					<table cellpadding="30" cellspacing="30" width="80%">
-						<tr>
-							<td>
-								<div class="input-group">
-									<label for="">Select Date<span class="required">*</span></label>
-									<input type="date" id="current-date" required autofocus>
-								</div>
-							</td>
-							<td>
-								<div class="input-group">
-									<label for="">Select Slot<span class="required">*</span></label>
-									<select required>
-										<option value="" disabled selected>Select your time slot</option>
-										<option>Customer</option>
-										<option>Chef</option>
-									</select>
-								</div>
-							</td>
-							<td>
-								<div class="input-group">
-									<input type="button" value="Check Availability">
-								</div>
-							</td>
-						</tr>
-					</table>
-				</form>
+				<table cellpadding="30" cellspacing="30" width="80%">
+					<tr>
+						<td>
+							<div class="input-group">
+								<label for="">Select Date<span class="required">*</span></label>
+								<input type="date" id="booking-date" required autofocus>
+							</div>
+						</td>
+						<td>
+							<div class="input-group">
+								<label for="">Select Slot<span class="required">*</span></label>
+								<select id="booking-slot" required>
+									<option value="" disabled selected>Select your time slot</option>
+									<option value="9:00-11:00">9:00 - 11:00</option>
+									<option value="11:00-13:00">11:00 - 13:00</option>
+									<option value="14:00-16:00">14:00 - 16:00</option>
+									<option value="16:00-18:00">16:00 - 18:00</option>
+								</select>
+							</div>
+						</td>
+						<td>
+							<div class="input-group">
+								<input type="submit" value="Check Availability" onclick="fetchChefs()">
+							</div>
+						</td>
+					</tr>
+				</table>
 			</div>
 
 			<!-- Chef's Available -->
-			<div class="wrapper">
+			<div id="display-available-chef" class="wrapper">
 				sdjfhg
 			</div>
 		</div>
 	</div>
 	<script src="js/script.js"></script>
 	<script>
-		document.getElementById("current-date").value = new Date().toISOString().slice(0, 10); 
+		document.getElementById("booking-date").value = new Date().toISOString().slice(0, 10); 
 	</script>
 </body>
 </html>
