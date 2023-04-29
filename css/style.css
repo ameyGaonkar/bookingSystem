@@ -210,7 +210,63 @@
 
 .wrapper{
 	width: 98%;
+	padding: 15px;
 	margin: 10px auto;
 	background-color: #fff;
 	border-radius: 5px;
+	display: flex;
+}
+
+.chef-card{
+	flex-basis: 300px;
+	height: auto;
+	padding: 15px;
+	border: solid 1px #e2e2e2;
+	box-shadow: 3px 3px 8px -5px rgba(0,0,0,0.75);
+	border-radius: 5px;
+	position: relative;
+}
+
+.chef-name{
+	font-size: 22px;
+	font-weight: bold;
+}
+
+.chef-email{
+	font-size: 16px;
+	color: #949494;
+	border-bottom: solid 1px #e2e2e2;
+	padding: 2px 0 15px 0;
+}
+
+.chef-rating{
+	position: absolute;
+	right: 20px;
+	top: 20px;
+}
+
+.card-action-container{
+	text-align: right;
+	padding: 10px;
+}
+
+.card-action-container input[type="button"]{
+	padding: 10px 15px;
+	border: none;
+	border-radius: 5px;
+	background-color: #c00030 !important;
+	color: #ececec ;
+}
+
+.card-action-container input[type="button"]:hover{
+	transition: 150ms ease-out;
+	background-color: #e4083f !important;
+	color: #ffffff ;
+}
+
+.no-cards-error{
+	padding: 20px;
+	font-size: 18px;
+	line-height: 24px;
+	color: #949494;
 }

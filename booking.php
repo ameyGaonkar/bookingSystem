@@ -28,13 +28,13 @@
 		<!-- Side - Navbar -->
 		<div class="side-nav">
 			<a href="#">Profile</a>
-			<a class="side-nav-active" href="booking.html">Book Now!</a>
+			<a class="side-nav-active" href="booking.php">Book Now!</a>
 			<a href="#">Booking History</a>
 		</div>
 
 		<!-- Content Section -->
 		<div class="content">
-			<div class="current-location">User / <a href="booking.html">Book Chef</a></div>
+			<div class="current-location">User / <a href="booking.php">Book Chef</a></div>
 
 			<!-- Booking Selectors -->
 			<div class="wrapper">
@@ -60,7 +60,7 @@
 						</td>
 						<td>
 							<div class="input-group">
-								<input type="submit" value="Check Availability" onclick="fetchChefs()">
+								<input type="submit" value="Check Availability" onclick="fetchDateAndTime()">
 							</div>
 						</td>
 					</tr>
@@ -69,7 +69,17 @@
 
 			<!-- Chef's Available -->
 			<div id="display-available-chef" class="wrapper">
-				sdjfhg
+				<span class="no-cards-error">
+					Sorry! No chef's available on date and time slot you've selected. <br> Please change your date & time selections.
+				</span>
+				<!-- <div class="chef-card">
+					<div class="chef-name">Chef Amey</div>
+					<div class="chef-email">amey@chef.com</div>
+					<span class="chef-rating">4.9/5</span>
+					<div class="card-action-container">
+						<input type="button" value="Book This Chef!" onclick="bookThisChef()">
+					</div>
+				</div> -->
 			</div>
 		</div>
 	</div>
