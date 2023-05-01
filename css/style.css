@@ -95,7 +95,7 @@
 	color: #fff;
 }
 
-.input-group input[type="submit"][disabled]{
+.input-group input[type="submit"][disabled], input[type="button"][disabled]{
 	background-color: #628a8c;
 	color: #c7d8d9;
 }
@@ -302,4 +302,12 @@
 .status-yellow{
 	color: #ec8e00;
 	font-weight: bold;
+}
+
+
+/* Profile page styling */
+
+.profile-form{
+	padding: 10px;
+	flex-basis: 50%;
 }

@@ -34,7 +34,7 @@
 
 		<!-- Side - Navbar -->
 		<div class="side-nav">
-			<a href="booking.html">Profile</a>
+			<a href="profile.php">Profile</a>
 			<a class="side-nav-active" href="chefDashboard.php">Bookings</a>
 		</div>
 

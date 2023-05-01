@@ -27,7 +27,7 @@
 
 		<!-- Side - Navbar -->
 		<div class="side-nav">
-			<a href="#">Profile</a>
+			<a href="customer-profile.php">Profile</a>
 			<a class="side-nav-active" href="booking.php">Book Now!</a>
 			<a href="booking-history.php">Booking History</a>
 		</div>

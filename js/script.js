@@ -1,13 +1,14 @@
 
 // Checking whether the entered password and confirm password matches and enable the submit button on success.
 function comparePassword(){
-	if (document.getElementById('confirm-password').value === document.getElementById('password').value)
+	if (document.getElementById('confirm-password').value && document.getElementById('password').value && (document.getElementById('confirm-password').value === document.getElementById('password').value))
 	{
 		document.getElementById("sign-up-button").disabled = false;
 	} else {
 		document.getElementById("sign-up-button").disabled = true;
 	}
 }
+
 
 
 // Code to display list of available chefs depending on date & time slot selection
@@ -104,4 +105,57 @@ function changeBookingStatus(bookingId,status){
 		}
 	}
 	xmlHttp.send(data);
+}
+
+
+
+// AJAX code to update profile information of user
+function updateUserInformation(user_id){
+	let fname = document.getElementsByName("firstName")[0].value;
+	let lname = document.getElementsByName("lastName")[0].value;
+	let email = document.getElementsByName("email")[0].value;
+
+	var formData = new FormData();
+	formData.append('user_id', user_id);
+	formData.append('firstName', fname);
+	formData.append('lastName', lname);
+	formData.append('email', email);
+
+	var xmlHttp = new XMLHttpRequest();
+	xmlHttp.open("POST", "scripts/updateProfileInformation.php"); 
+	xmlHttp.onreadystatechange = function()
+	{
+		if(xmlHttp.readyState == 4 && xmlHttp.status == 200)
+		{
+			alert(xmlHttp.response);
+		}
+	}
+	xmlHttp.send(formData);
+}
+
+
+
+// AJAX code to password of the user
+function changeUserPassword(user_id){
+	var oldPass = document.getElementsByName("current-password")[0];
+	var newPass = document.getElementsByName("password")[0];
+
+	var formData = new FormData();
+	formData.append('user_id', user_id);
+	formData.append('current-password', oldPass.value);
+	formData.append('password', newPass.value);
+
+	var xmlHttp = new XMLHttpRequest();
+	xmlHttp.open("POST", "scripts/changeUserPassword.php"); 
+	xmlHttp.onreadystatechange = function()
+	{
+		if(xmlHttp.readyState == 4 && xmlHttp.status == 200)
+		{
+			alert(xmlHttp.response);
+			oldPass.value = "";
+			newPass.value = "";
+			document.getElementById("confirm-password").value = "";
+		}
+	}
+	xmlHttp.send(formData);
 }
