@@ -3,6 +3,13 @@
 	if (!isset($_SESSION['email'])){
 		header('Location: index.html');
 	} 
+
+	require("scripts/dbConnect.php");
+
+	$bookings = $con->prepare('SELECT booking.booking_id, user.firstName, booking.date, booking.time_slot, booking.status FROM booking INNER JOIN user ON booking.chef_id=? AND user.user_id=booking.customer_id;');
+    $bookings->bindParam(1, $_SESSION['user_id']);
+    $bookings->execute();
+	$bookingList = $bookings->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
 <!doctype html>
@@ -27,54 +34,53 @@
 
 		<!-- Side - Navbar -->
 		<div class="side-nav">
-			<a class="side-nav-active" href="booking.html">Profile</a>
-			<a href="#">Bookings</a>
+			<a href="booking.html">Profile</a>
+			<a class="side-nav-active" href="chefDashboard.php">Bookings</a>
 		</div>
 
 		<!-- Content Section -->
 		<div class="content">
-			<div class="current-location">User / <a href="booking.html">Book Chef</a></div>
+			<div class="current-location">User / <a href="chefDashboard.php">My Bookings</a></div>
 
 			<!-- Booking Selectors -->
 			<div class="wrapper">
-				<form>
-					<table cellpadding="30" cellspacing="30" width="80%">
-						<tr>
-							<td>
-								<div class="input-group">
-									<label for="">Select Date<span class="required">*</span></label>
-									<input type="date" id="current-date" required autofocus>
-								</div>
-							</td>
-							<td>
-								<div class="input-group">
-									<label for="">Select Slot<span class="required">*</span></label>
-									<select required>
-										<option value="" disabled selected>Select your time slot</option>
-										<option>Customer</option>
-										<option>Chef</option>
-									</select>
-								</div>
-							</td>
-							<td>
-								<div class="input-group">
-									<input type="button" value="Check Availability">
-								</div>
-							</td>
-						</tr>
-					</table>
-				</form>
-			</div>
-
-			<!-- Chef's Available -->
-			<div class="wrapper">
-				sdjfhg
+				<table class="bookings-display-table" cellpadding="0" cellspacing="0" width="100%" style="text-align:center;">
+					<tr>
+						<th>#</th>
+						<th>Customer Name</th>
+						<th>Booked on</th>
+						<th>Time Slot</th>
+						<th>Status</th>
+					</tr>
+					<?php
+						$counter = 0;
+						foreach($bookingList as $row){
+							$counter++;
+							if ($row['status'] == "Approved"){
+								echo '<tr class="row-success">';
+							} else {
+								echo '<tr>';
+							}
+							echo '<td>'.$counter.'.</td>';
+							echo '<td>'.$row['firstName'].'</td>';
+							echo '<td>'.$row['date'].'</td>';
+							echo '<td>'.$row['time_slot'].'</td>';
+							echo '<td><select onchange="changeBookingStatus('.$row['booking_id'].',this.value)">';
+							if ($row['status'] == "Pending"){
+								echo '<option value="'.$row['status'].'" selected>'.$row['status'].'</option>';
+								echo '<option value="Approved">Approved</option>';
+							} else if ($row['status'] == "Approved"){
+								echo '<option value="'.$row['status'].'" selected>'.$row['status'].'</option>';
+								echo '<option value="Pending">Pending</option>';
+							}
+							echo '</select></td>';
+							echo '</tr>';
+						}
+					?>
+				</table>
 			</div>
 		</div>
 	</div>
 	<script src="js/script.js"></script>
-	<script>
-		document.getElementById("current-date").value = new Date().toISOString().slice(0, 10); 
-	</script>
 </body>
 </html>

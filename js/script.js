@@ -64,7 +64,7 @@ function fetchDateAndTime(){
 	fetchChefs();
 }
 
-
+// AJAX to book a chef
 function bookThisChef(chef_id){
 	var data = new FormData();
 	data.append('date', date);
@@ -81,6 +81,26 @@ function bookThisChef(chef_id){
 				fetchChefs();
 			}
 			alert(xmlHttp.response);
+		}
+	}
+	xmlHttp.send(data);
+}
+
+
+// AJAX to change status of booking
+function changeBookingStatus(bookingId,status){
+	var data = new FormData();
+	data.append('booking_id', bookingId);
+	data.append('status', status);
+
+	var xmlHttp = new XMLHttpRequest();
+	xmlHttp.open("POST", "scripts/changeBookingStatus.php"); 
+	xmlHttp.onreadystatechange = function()
+	{
+		if(xmlHttp.readyState == 4 && xmlHttp.status == 200)
+		{
+			alert(xmlHttp.response);
+			location.reload();
 		}
 	}
 	xmlHttp.send(data);

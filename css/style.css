@@ -277,10 +277,29 @@
 
 /* Styling for table to display customer's bookings */
 
+.bookings-display-table {
+    border-collapse: separate;
+    border-spacing: 0 10px;
+}
+
 .bookings-display-table tr td,th{
-	padding: 15px;
+	padding: 10px;
 }
 
 .bookings-display-table tr:nth-child(even){
-	background-color: #e7e7e7;
+	background-color: #eeeeee;
+}
+
+.row-success{
+	background-color: #aeffb2 !important;
+}
+
+.status-green{
+	color: #04a50c;
+	font-weight: bold;
+}
+
+.status-yellow{
+	color: #ec8e00;
+	font-weight: bold;
 }

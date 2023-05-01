@@ -58,11 +58,15 @@
 						foreach($bookingList as $row){
 							$counter++;
 							echo '<tr>';
-							echo '<td>'.$counter.'</td>';
+							echo '<td>'.$counter.'.</td>';
 							echo '<td>'.$row['firstName'].'</td>';
 							echo '<td>'.$row['date'].'</td>';
 							echo '<td>'.$row['time_slot'].'</td>';
-							echo '<td>'.$row['status'].'</td>';
+							if ($row['status'] == "Approved"){
+								echo '<td class="status-green"> <i class="fa fa-check" aria-hidden="true"></i> '.$row['status'].'</td>';
+							} else {
+								echo '<td class="status-yellow"><i class="fa fa-hourglass-half" aria-hidden="true"></i> '.$row['status'].'</td>';
+							}
 							echo '</tr>';
 						}
 					?>
