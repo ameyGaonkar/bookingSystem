@@ -45,7 +45,7 @@
 
 			<!-- Chef's Available -->
 			<div class="wrapper">
-				<table cellpadding="5" cellspacing="10" width="100%" style="text-align:center;">
+				<table class="bookings-display-table" cellpadding="0" cellspacing="0" width="100%" style="text-align:center;">
 					<tr>
 						<th>#</th>
 						<th>Chef Name</th>

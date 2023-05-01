@@ -273,3 +273,14 @@
 	line-height: 24px;
 	color: #949494;
 }
+
+
+/* Styling for table to display customer's bookings */
+
+.bookings-display-table tr td,th{
+	padding: 15px;
+}
+
+.bookings-display-table tr:nth-child(even){
+	background-color: #e7e7e7;
+}
